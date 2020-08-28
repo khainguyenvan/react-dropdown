@@ -1,10 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import useOutsideClick from "./useOutsideClick";
+import { AngleDown, AngleRight } from "./Icon";
 
 const DefaultToggle = React.forwardRef((props, ref) => {
   return (
     <button {...props} className="dropdown-button" ref={ref}>
       {props.title ? props.title : "Dropdown button"}
+      <span style={{ marginLeft: "5px" }}>
+        {props.isOpen ? <AngleDown /> : <AngleRight />}
+      </span>
     </button>
   );
 });
@@ -18,7 +22,7 @@ function Dropdown(props) {
   const toggleRef = useRef(null);
 
   useEffect(() => {
-    if (isOpen && dropdownBodyRef) {
+    if (isOpen && dropdownBodyRef.current) {
       let newBodyStyle = {};
 
       const { height, width } = dropdownBodyRef.current.getBoundingClientRect();
@@ -72,7 +76,11 @@ function Dropdown(props) {
           ref: toggleRef
         })
       ) : (
-        <DefaultToggle onClick={handleShowDropdown} ref={toggleRef} />
+        <DefaultToggle
+          isOpen={isOpen}
+          onClick={handleShowDropdown}
+          ref={toggleRef}
+        />
       )}
       <div
         className={`dropdown ${isOpen ? "dropdown-open" : ""}`}
