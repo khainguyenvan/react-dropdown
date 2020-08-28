@@ -54,7 +54,6 @@ export default function App() {
   return (
     <div className="App">
       <Dropdown>{ContentDropdown}</Dropdown>
-      <Dropdown>{ContentDropdown}</Dropdown>
       <Dropdown customToggle={customDropdownToggle}>{ContentDropdown}</Dropdown>
       <div style={{ position: "fixed", top: `${window.innerHeight - 50}px` }}>
         <Dropdown>{ContentDropdown}</Dropdown>

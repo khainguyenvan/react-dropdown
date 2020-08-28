@@ -5,6 +5,7 @@
 .dropdown-container {
   position: relative;
   margin: 2px 4px;
+  display: inline-block;
 }
 
 .dropdown-button {
@@ -52,11 +53,10 @@ ul {
 }
 ul > *,
 li {
-  color: black;
   padding: 15px 25px;
-  margin: 5x 0px;
+  margin: 5px 0px;
   font-weight: bold;
-  color: #444444;
+  color: #5e5e5e;
 }
 
 ul > *:hover {
